@@ -1,0 +1,14 @@
+C:\Users\omitk\Downloads\BibliotecaAvanzata\src\main\java\com\biblioteca\main\Main.java
+C:\Users\omitk\Downloads\BibliotecaAvanzata\src\main\java\com\biblioteca\repository\BookRepository.java
+C:\Users\omitk\Downloads\BibliotecaAvanzata\src\main\java\com\biblioteca\model\Book.java
+C:\Users\omitk\Downloads\BibliotecaAvanzata\src\main\java\com\biblioteca\util\Formatter.java
+C:\Users\omitk\Downloads\BibliotecaAvanzata\src\main\java\com\biblioteca\controller\LoanController.java
+C:\Users\omitk\Downloads\BibliotecaAvanzata\src\main\java\com\biblioteca\service\UserService.java
+C:\Users\omitk\Downloads\BibliotecaAvanzata\src\main\java\com\biblioteca\exception\ServiceException.java
+C:\Users\omitk\Downloads\BibliotecaAvanzata\src\main\java\com\biblioteca\util\Logger.java
+C:\Users\omitk\Downloads\BibliotecaAvanzata\src\main\java\com\biblioteca\controller\UserController.java
+C:\Users\omitk\Downloads\BibliotecaAvanzata\src\main\java\com\biblioteca\exception\DatabaseException.java
+C:\Users\omitk\Downloads\BibliotecaAvanzata\src\main\java\com\biblioteca\repository\UserRepository.java
+C:\Users\omitk\Downloads\BibliotecaAvanzata\src\main\java\com\biblioteca\model\Loan.java
+C:\Users\omitk\Downloads\BibliotecaAvanzata\src\main\java\com\biblioteca\model\User.java
+C:\Users\omitk\Downloads\BibliotecaAvanzata\src\main\java\com\biblioteca\service\LoanService.java

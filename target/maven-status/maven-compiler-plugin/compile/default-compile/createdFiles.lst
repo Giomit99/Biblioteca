@@ -1,0 +1,14 @@
+com\biblioteca\main\Main.class
+com\biblioteca\model\User.class
+com\biblioteca\controller\UserController.class
+com\biblioteca\service\LoanService.class
+com\biblioteca\repository\UserRepository.class
+com\biblioteca\util\Logger.class
+com\biblioteca\exception\ServiceException.class
+com\biblioteca\util\Formatter.class
+com\biblioteca\controller\LoanController.class
+com\biblioteca\repository\BookRepository.class
+com\biblioteca\model\Loan.class
+com\biblioteca\exception\DatabaseException.class
+com\biblioteca\model\Book.class
+com\biblioteca\service\UserService.class
