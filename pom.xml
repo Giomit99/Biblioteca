@@ -22,7 +22,7 @@
 
     <build>
         <plugins>
-            <!--<plugin>
+            <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>0.8.11</version>
@@ -32,7 +32,7 @@
                             <goal>prepare-agent</goal>
                         </goals>
                     </execution>
-                    &lt;!&ndash; attached to Maven test phase &ndash;&gt;
+                    <!-- attached to Maven test phase -->
                     <execution>
                         <id>jacoco-report</id>
                         <phase>test</phase>
@@ -41,7 +41,7 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>-->
+            </plugin>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>jdepend-maven-plugin</artifactId>
