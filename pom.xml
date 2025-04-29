@@ -89,7 +89,7 @@
                 <executions>
                     <execution>
                         <id>pitest</id>
-                        <phase>test</phase>
+                        <phase>verify</phase>
                         <goals>
                             <goal>mutationCoverage</goal>
                         </goals>
@@ -99,6 +99,7 @@
                     <outputFormats>
                         <outputFormat>XML</outputFormat>
                     </outputFormats>
+                    <timestampedReports>true</timestampedReports>
                     <targetClasses>
                         <param>com.biblioteca.controller.*</param>
                         <param>com.biblioteca.exception.*</param>
