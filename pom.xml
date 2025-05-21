@@ -34,7 +34,7 @@
                     </execution>
                     <execution>
                         <id>jacoco-report</id>
-                        <phase>test</phase>
+                        <phase>verify</phase>
                         <goals>
                             <goal>report</goal>
                         </goals>
@@ -98,17 +98,15 @@
                 <configuration>
                     <outputFormats>
                         <outputFormat>XML</outputFormat>
+                        <outputFormat>HTML</outputFormat>
                     </outputFormats>
                     <timestampedReports>true</timestampedReports>
                     <targetClasses>
-                        <param>com.biblioteca.controller.*</param>
-                        <param>com.biblioteca.exception.*</param>
-                        <param>com.biblioteca.main.*</param>
-                        <param>com.biblioteca.model.*</param>
-                        <param>com.biblioteca.repository.*</param>
-                        <param>com.biblioteca.service.*</param>
-                        <param>com.biblioteca.util.*</param>
+                        <param>com.biblioteca.*</param>
                     </targetClasses>
+                    <targetTests>
+                        <param>com.biblioteca.*Test</param>
+                    </targetTests>
                 </configuration>
             </plugin>
         </plugins>
