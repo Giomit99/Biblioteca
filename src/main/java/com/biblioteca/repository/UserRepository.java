@@ -12,7 +12,11 @@ public class UserRepository {
     public UserRepository() {
         this.users = new ArrayList<>();
     }
-    
+
+    /**
+     * Salva utente
+     * @param user
+     */
     public void save(User user) {
         if (user == null) {
             throw new DatabaseException("Errore: utente nullo non può essere salvato.");
