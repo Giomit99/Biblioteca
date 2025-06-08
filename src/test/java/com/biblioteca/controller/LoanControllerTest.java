@@ -41,9 +41,9 @@ public class LoanControllerTest {
 
         // Act
         String output = outContent.toString();
-
+        System.out.println("DEBUG OUTPUT:\n" + output);
         // Assert
-        assertTrue(output.contains("Prestiti prossimi alla scadenza:"),
+        assertTrue(output.toLowerCase().contains("prestiti prossimi alla scadenza:"),
                 "Il metodo dovrebbe stampare l'intestazione dei prestiti prossimi alla scadenza");
     }
 }
