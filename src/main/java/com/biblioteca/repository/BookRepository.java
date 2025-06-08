@@ -13,6 +13,10 @@ public class BookRepository {
         this.books = new ArrayList<>();
     }
 
+    /**
+     * Medoto che salva un libro nel repository
+     * @param book
+     */
     public void save(Book book) {
         if (book == null) {
             throw new DatabaseException("Errore: libro nullo non può essere salvato.");
