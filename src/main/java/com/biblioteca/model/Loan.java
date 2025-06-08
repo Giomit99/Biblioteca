@@ -15,6 +15,13 @@ public class Loan {
         this.dueDate = startDate.plusDays(30); // prestito valido 30 giorni
     }
 
+    public Loan(Book book, User user, LocalDate customDueDate) {
+        this.book = book;
+        this.user = user;
+        this.startDate = LocalDate.now();
+        this.dueDate = customDueDate;
+    }
+
     public Book getBook() {
         return book;
     }
