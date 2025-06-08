@@ -11,6 +11,9 @@ public class UserController {
     private static UserRepository userRepository = new UserRepository();
     private User authenticatedUser = null;
 
+    /**
+     * Costruttore
+     */
     public UserController() {
         service = new UserService(userRepository);
     }

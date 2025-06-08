@@ -17,6 +17,9 @@ public class LoanController {
     private BookRepository bookRepository;
     private Formatter formatter;
 
+    /**
+     * Costruttore
+     */
     public LoanController() {
         this.bookRepository = new BookRepository();
         this.service = new LoanService(this);
