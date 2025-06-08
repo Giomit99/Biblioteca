@@ -61,6 +61,11 @@ public class LoanService {
         return activeLoans;
     }
 
+    /**
+     * Ritorna libro
+     * @param user
+     * @param book
+     */
     public void returnBook(User user, Book book) {
         Loan loanToRemove = null;
         for (Loan loan : activeLoans) {
