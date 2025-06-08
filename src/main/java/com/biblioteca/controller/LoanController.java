@@ -39,6 +39,10 @@ public class LoanController {
                 + " (Restituire entro: " + loan.getDueDate() + ")"));
     }
 
+    /**
+     * Metodo che mostra i prestiti scaduti
+     * @param loans
+     */
     public void showOverdueLoans(List<Loan> loans) {
         System.out.println(formatter.format("Prestiti scaduti:"));
         for (Loan loan : loans) {
