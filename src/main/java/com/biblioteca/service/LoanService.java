@@ -17,6 +17,10 @@ public class LoanService {
     private List<Loan> activeLoans;
     private List<Loan> historicalLoans;
 
+    /**
+     * Costruttore
+     * @param controller
+     */
     public LoanService(LoanController controller) {
         this.activeLoans = new ArrayList<>();
         this.historicalLoans = new ArrayList<>();
