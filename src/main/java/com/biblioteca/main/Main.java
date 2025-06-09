@@ -14,8 +14,8 @@ import java.util.Scanner;
 
 public class Main {
     /**
-     * Main principale
-     * @param args
+     * Main principale.
+     * @param args gli argomenti della riga di comando
      */
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);

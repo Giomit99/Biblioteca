@@ -7,35 +7,35 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BookRepository {
-    private List<Book> books;
+  private List<Book> books;
 
-    public BookRepository() {
-        this.books = new ArrayList<>();
+  public BookRepository() {
+    this.books = new ArrayList<>();
+  }
+
+  /**
+   * Medoto che salva un libro nel repository
+   * @param book
+   */
+  public void save(Book book) {
+    if (book == null) {
+      throw new DatabaseException("Errore: libro nullo non può essere salvato.");
     }
 
-    /**
-     * Medoto che salva un libro nel repository
-     * @param book
-     */
-    public void save(Book book) {
-        if (book == null) {
-            throw new DatabaseException("Errore: libro nullo non può essere salvato.");
-        }
+    books.add(book);
+  }
 
-        books.add(book);
-    }
+  public List<Book> findAll() {
+    return books;
+  }
 
-    public List<Book> findAll() {
-        return books;
+  public List<Book> searchByTitle(String query) {
+    List<Book> results = new ArrayList<>();
+    for (Book book : books) {
+      if (book.getTitle().toLowerCase().contains(query.toLowerCase())) {
+        results.add(book);
+      }
     }
-
-    public List<Book> searchByTitle(String query) {
-        List<Book> results = new ArrayList<>();
-        for (Book book : books) {
-            if (book.getTitle().toLowerCase().contains(query.toLowerCase())) {
-                results.add(book);
-            }
-        }
-        return results;
-    }
+    return results;
+  }
 }

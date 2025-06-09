@@ -2,6 +2,9 @@ package com.biblioteca.model;
 
 import java.time.LocalDate;
 
+/**
+ * Classe che rappresenta i prestiti dei libri agli utenti
+ */
 public class Loan {
   private Book book;
   private User user;
