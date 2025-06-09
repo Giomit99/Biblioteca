@@ -8,6 +8,9 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Classe di test che testa la business logic di LoanService
+ */
 public class LoanServiceTest {
 
   private class DummyController extends LoanController {

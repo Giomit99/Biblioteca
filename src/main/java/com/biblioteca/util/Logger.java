@@ -9,13 +9,13 @@ public class Logger {
         this.service = service;
     }
 
-    /**
-     * Log
-     * @param message
-     */
-    public void log(String message) {
-        System.out.println("LOG: " + message);
-        int count = service.getActiveLoans();
-        System.out.println("Prestiti attivi registrati: " + count);
-    }
+  /**
+   * Log
+   * @param message
+   */
+  public void log(String message) {
+    System.out.println("LOG: " + message);
+    int count = service.getActiveLoans();
+    System.out.println("Prestiti attivi registrati: " + count);
+  }
 }

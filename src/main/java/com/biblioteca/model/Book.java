@@ -26,9 +26,9 @@ public class Book {
         isLoaned = loaned;
     }
 
-    public void addReservation(User user) {
-        reservationQueue.add(user);
-    }
+  public void addReservation(User user) {
+    reservationQueue.add(user);
+  }
 
     public User getNextReservation() {
         return reservationQueue.poll();
