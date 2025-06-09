@@ -15,35 +15,35 @@ import java.util.Collections;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class LoanControllerTest {
-    private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-    private final PrintStream originalOut = System.out;
+  private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+  private final PrintStream originalOut = System.out;
 
-    @BeforeEach
-    void setUpStreams() {
-        System.setOut(new PrintStream(outContent));
-    }
+  @BeforeEach
+  void setUpStreams() {
+    System.setOut(new PrintStream(outContent));
+  }
 
-    @AfterEach
-    void restoreStreams() {
-        System.setOut(originalOut);
-    }
+  @AfterEach
+  void restoreStreams() {
+    System.setOut(originalOut);
+  }
 
-    @Test
-    void testShowLoansNearExpiry_printsHeader() {
-        // Arrange
-        LoanController controller = new LoanController();
-        Book book = new Book("Il Nome della Rosa");
-        User user = new User("ugo123", "Ugo", "ugo@email.com");
+  @Test
+  void testShowLoansNearExpiry_printsHeader() {
+    // Arrange
+    LoanController controller = new LoanController();
+    Book book = new Book("Il Nome della Rosa");
+    User user = new User("ugo123", "Ugo", "ugo@email.com");
 
-        // Set due date to 2 days from now (within "near expiry" window)
-        Loan loan = new Loan(book, user, LocalDate.now().plusDays(2));
-        controller.showLoansNearExpiry(Collections.singletonList(loan));
+    // Set due date to 2 days from now (within "near expiry" window)
+    Loan loan = new Loan(book, user, LocalDate.now().plusDays(2));
+    controller.showLoansNearExpiry(Collections.singletonList(loan));
 
-        // Act
-        String output = outContent.toString();
-        System.out.println("DEBUG OUTPUT:\n" + output);
-        // Assert
-        assertTrue(output.toLowerCase().contains("prestiti prossimi alla scadenza:"),
-                "Il metodo dovrebbe stampare l'intestazione dei prestiti prossimi alla scadenza");
-    }
+    // Act
+    String output = outContent.toString();
+    System.out.println("DEBUG OUTPUT:\n" + output);
+    // Assert
+    assertTrue(output.toLowerCase().contains("prestiti prossimi alla scadenza:"),
+            "Il metodo dovrebbe stampare l'intestazione dei prestiti prossimi alla scadenza");
+  }
 }
