@@ -1,6 +1,5 @@
 package com.biblioteca.service;
 
-import com.biblioteca.controller.LoanController;
 import com.biblioteca.model.Loan;
 import com.biblioteca.model.Book;
 import com.biblioteca.model.User;
@@ -12,19 +11,20 @@ import java.util.List;
 import java.util.Map;
 
 public class LoanService {
-    private LoanController controller;
+    private LoanListener listener;
     private List<Loan> activeLoans;
     private List<Loan> historicalLoans;
 
     /**
      * Costruttore
-     * @param controller
+     * @param listener
      */
-    public LoanService(LoanController controller) {
+    public LoanService(LoanListener listener) {
+        this.listener = listener;
         this.activeLoans = new ArrayList<>();
         this.historicalLoans = new ArrayList<>();
-        this.controller = controller;
     }
+
 
     public void processLoan(Loan loan) {
         Book book = loan.getBook();
@@ -42,7 +42,9 @@ public class LoanService {
             book.setLoaned(true);
             activeLoans.add(loan);
             Logger.log("Processando prestito per: " + book.getTitle());
-            controller.loanProcessed(loan);
+            if (listener != null) {
+                listener.loanProcessed(loan);
+            }
         }
     }
 
@@ -87,7 +89,10 @@ public class LoanService {
                 User nextUser = book.getNextReservation();
                 Loan newLoan = new Loan(book, nextUser);
                 activeLoans.add(newLoan);
-                controller.loanProcessed(newLoan);
+                if (listener != null) {
+                    listener.loanProcessed(newLoan);
+                }
+
                 Logger.log("Libro " + book.getTitle() + " prestato automaticamente a " + nextUser.getName());
             } else {
                 // Nessuno in coda ➔ libro torna libero

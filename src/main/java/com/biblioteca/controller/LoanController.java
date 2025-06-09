@@ -4,6 +4,7 @@ import com.biblioteca.model.Book;
 import com.biblioteca.model.Loan;
 import com.biblioteca.model.User;
 import com.biblioteca.repository.BookRepository;
+import com.biblioteca.service.LoanListener;
 import com.biblioteca.service.LoanService;
 import com.biblioteca.util.Formatter;
 
@@ -12,7 +13,7 @@ import java.util.List;
 /**
  * Controller per gestire i prestiti nella biblioteca.
  */
-public class LoanController {
+public class LoanController implements LoanListener {
   private LoanService service;
   private BookRepository bookRepository;
   private Formatter formatter;
@@ -34,6 +35,7 @@ public class LoanController {
     return service;
   }
 
+  @Override
   public void loanProcessed(Loan loan) {
     System.out.println(formatter.format("Prestito confermato: "
             + loan.getBook().getTitle()
