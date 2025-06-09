@@ -10,51 +10,51 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class LoanServiceTest {
 
-    private class DummyController extends LoanController {
-        @Override
-        public void loanProcessed(Loan loan) {
-        }
+  private class DummyController extends LoanController {
+    @Override
+    public void loanProcessed(Loan loan) {
     }
+  }
 
-    @Test
-    public void testLoanWhenUserAlreadyHasBook() {
-        DummyController controller = new DummyController();
-        LoanService service = new LoanService(controller);
+  @Test
+  public void testLoanWhenUserAlreadyHasBook() {
+    DummyController controller = new DummyController();
+    LoanService service = new LoanService(controller);
 
-        Book book = new Book("1984");
-        User user = new User("Anna", "anna", "anna");
+    Book book = new Book("1984");
+    User user = new User("Anna", "anna", "anna");
 
-        Loan loan = new Loan(book, user);
-        service.processLoan(loan);
-        service.processLoan(loan);
-    }
+    Loan loan = new Loan(book, user);
+    service.processLoan(loan);
+    service.processLoan(loan);
+  }
 
-    @Test
-    public void testLoanWhenBookAlreadyLoanedByOthers() {
-        DummyController controller = new DummyController();
-        LoanService service = new LoanService(controller);
+  @Test
+  public void testLoanWhenBookAlreadyLoanedByOthers() {
+    DummyController controller = new DummyController();
+    LoanService service = new LoanService(controller);
 
-        Book book = new Book("Brave New World");
-        book.setLoaned(true);
+    Book book = new Book("Brave New World");
+    book.setLoaned(true);
 
-        User user = new User("Luca", "luca", "luca");
-        Loan loan = new Loan(book, user);
+    User user = new User("Luca", "luca", "luca");
+    Loan loan = new Loan(book, user);
 
-        service.processLoan(loan);
-        assertTrue(book.hasReservations());
-    }
+    service.processLoan(loan);
+    assertTrue(book.hasReservations());
+  }
 
-    @Test
-    public void testLoanWhenBookIsAvailable() {
-        DummyController controller = new DummyController();
-        LoanService service = new LoanService(controller);
+  @Test
+  public void testLoanWhenBookIsAvailable() {
+    DummyController controller = new DummyController();
+    LoanService service = new LoanService(controller);
 
-        Book book = new Book("Siddhartha");
-        User user = new User("Marco", "marco", "marco");
-        Loan loan = new Loan(book, user);
+    Book book = new Book("Siddhartha");
+    User user = new User("Marco", "marco", "marco");
+    Loan loan = new Loan(book, user);
 
-        service.processLoan(loan);
+    service.processLoan(loan);
 
-        assertTrue(book.isLoaned());
-    }
+    assertTrue(book.isLoaned());
+  }
 }
