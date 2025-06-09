@@ -13,7 +13,6 @@ import java.util.Map;
 
 public class LoanService {
     private LoanController controller;
-    private Logger logger;
     private List<Loan> activeLoans;
     private List<Loan> historicalLoans;
 
@@ -25,7 +24,6 @@ public class LoanService {
         this.activeLoans = new ArrayList<>();
         this.historicalLoans = new ArrayList<>();
         this.controller = controller;
-        this.logger = new Logger(this);
     }
 
     public void processLoan(Loan loan) {
@@ -33,17 +31,17 @@ public class LoanService {
         User user = loan.getUser();
 
         if (hasLoanedBook(user, book)) {
-            logger.log("Utente " + user.getName() + " ha già in prestito il libro: " + book.getTitle() + ". Prestito negato.");
+            Logger.log("Utente " + user.getName() + " ha già in prestito il libro: " + book.getTitle() + ". Prestito negato.");
             return;
         }
 
         if (book.isLoaned()) {
             book.addReservation(user);
-            logger.log("Libro già prestato: " + book.getTitle() + ". Utente " + user.getName() + " aggiunto alla lista di attesa.");
+            Logger.log("Libro già prestato: " + book.getTitle() + ". Utente " + user.getName() + " aggiunto alla lista di attesa.");
         } else {
             book.setLoaned(true);
             activeLoans.add(loan);
-            logger.log("Processando prestito per: " + book.getTitle());
+            Logger.log("Processando prestito per: " + book.getTitle());
             controller.loanProcessed(loan);
         }
     }
@@ -82,7 +80,7 @@ public class LoanService {
 
         if (loanToRemove != null) {
             activeLoans.remove(loanToRemove);
-            logger.log("Libro restituito: " + book.getTitle() + " da " + user.getName());
+            Logger.log("Libro restituito: " + book.getTitle() + " da " + user.getName());
 
             if (book.hasReservations()) {
                 // Se c'è qualcuno in coda ➔ nuovo prestito automatico
@@ -90,14 +88,14 @@ public class LoanService {
                 Loan newLoan = new Loan(book, nextUser);
                 activeLoans.add(newLoan);
                 controller.loanProcessed(newLoan);
-                logger.log("Libro " + book.getTitle() + " prestato automaticamente a " + nextUser.getName());
+                Logger.log("Libro " + book.getTitle() + " prestato automaticamente a " + nextUser.getName());
             } else {
                 // Nessuno in coda ➔ libro torna libero
                 book.setLoaned(false);
-                logger.log("Libro " + book.getTitle() + " è ora disponibile.");
+                Logger.log("Libro " + book.getTitle() + " è ora disponibile.");
             }
         } else {
-            logger.log("Tentativo di restituzione fallito: Nessun prestito attivo trovato per " + user.getName() + " con il libro " + book.getTitle());
+            Logger.log("Tentativo di restituzione fallito: Nessun prestito attivo trovato per " + user.getName() + " con il libro " + book.getTitle());
         }
     }
 
