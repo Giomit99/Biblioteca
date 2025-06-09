@@ -21,6 +21,7 @@ public class BookRepository {
         if (book == null) {
             throw new DatabaseException("Errore: libro nullo non può essere salvato.");
         }
+
         books.add(book);
     }
 

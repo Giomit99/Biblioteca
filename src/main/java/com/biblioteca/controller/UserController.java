@@ -46,5 +46,4 @@ public class UserController {
     public User getAuthenticatedUser() {
         return authenticatedUser;
     }
-
 }
