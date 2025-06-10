@@ -1,6 +1,6 @@
 package com.biblioteca.service;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import com.biblioteca.controller.LoanController;
 import com.biblioteca.model.Book;
