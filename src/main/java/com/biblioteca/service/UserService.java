@@ -2,7 +2,6 @@ package com.biblioteca.service;
 
 import com.biblioteca.model.User;
 import com.biblioteca.repository.UserRepository;
-
 import java.util.List;
 
 public class UserService {

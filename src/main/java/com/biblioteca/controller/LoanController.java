@@ -7,7 +7,6 @@ import com.biblioteca.repository.BookRepository;
 import com.biblioteca.service.LoanListener;
 import com.biblioteca.service.LoanService;
 import com.biblioteca.util.Formatter;
-
 import java.util.List;
 
 /**

@@ -6,7 +6,6 @@ import com.biblioteca.model.Book;
 import com.biblioteca.model.Loan;
 import com.biblioteca.model.User;
 import com.biblioteca.service.LoanService;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;

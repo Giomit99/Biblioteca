@@ -2,7 +2,6 @@ package com.biblioteca.repository;
 
 import com.biblioteca.model.User;
 import com.biblioteca.exception.DatabaseException;
-
 import java.util.ArrayList;
 import java.util.List;
 

@@ -3,7 +3,6 @@ package com.biblioteca.controller;
 import com.biblioteca.model.User;
 import com.biblioteca.repository.UserRepository;
 import com.biblioteca.service.UserService;
-
 import java.util.List;
 
 public class UserController {

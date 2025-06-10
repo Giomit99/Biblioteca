@@ -4,7 +4,6 @@ import com.biblioteca.model.Loan;
 import com.biblioteca.model.Book;
 import com.biblioteca.model.User;
 import com.biblioteca.util.Logger;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
