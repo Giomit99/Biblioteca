@@ -21,14 +21,27 @@ public class User {
     this.password = password;
   }
 
+  /**
+   * Metodo nome utente
+   * @return ritorna il nome dell'utente
+   */
   public String getName() {
     return name;
   }
 
+  /**
+   * Metodo username
+   * @return ritorna lo username dell'utente
+   */
   public String getUsername() {
     return username;
   }
 
+  /**
+   * Verifica la password
+   * @param password password da validare
+   * @return boleano che è true se la password è uguale
+   */
   public boolean checkPassword(String password) {
     return this.password.equals(password);
   }

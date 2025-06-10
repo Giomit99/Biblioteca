@@ -5,9 +5,15 @@ import com.biblioteca.exception.DatabaseException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Insieme degli utenti
+ */
 public class UserRepository {
   private List<User> users;
 
+  /**
+   * Costruttore che istanzia una ArrayList
+   */
   public UserRepository() {
     this.users = new ArrayList<>();
   }
@@ -15,7 +21,7 @@ public class UserRepository {
   /**
    * Salva utente
    *
-   * @param user
+   * @param user utente da salvare
    */
   public void save(User user) {
     if (user == null) {
@@ -24,6 +30,10 @@ public class UserRepository {
     users.add(user);
   }
 
+  /**
+   * Ritorna tutti gli utenti
+   * @return lista degli utenti
+   */
   public List<User> findAll() {
     return users;
   }
