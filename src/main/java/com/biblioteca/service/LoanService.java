@@ -9,6 +9,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Business logic prestiti
+ */
 public class LoanService {
   private LoanListener listener;
   private List<Loan> activeLoans;
@@ -25,26 +28,31 @@ public class LoanService {
     this.historicalLoans = new ArrayList<>();
   }
 
-
+  /**
+   * Gestione di un prestito
+   * @param loan prestito
+   */
   public void processLoan(Loan loan) {
     Book book = loan.getBook();
     User user = loan.getUser();
 
     if (hasLoanedBook(user, book)) {
-      Logger.log("Utente " + user.getName() + " ha già in prestito il libro: " + book.getTitle() + ". Prestito negato.");
+      String msg= "Utente "+ user.getName()+ " ha già in prestito il libro: "+ book.getTitle();
+      Logger.log(msg);
       return;
     }
 
     if (book.isLoaned()) {
       book.addReservation(user);
-      Logger.log("Libro già prestato: " + book.getTitle() + ". Utente " + user.getName() + " aggiunto alla lista di attesa.");
-    } else {
+      String message = "Libro già prestato. Utente aggiunto alla lista di attesa";
+      Logger.log(message);
+    }
+    else {
       book.setLoaned(true);
       activeLoans.add(loan);
       Logger.log("Processando prestito per: " + book.getTitle());
-      if (listener != null) {
+      if (listener != null)
         listener.loanProcessed(loan);
-      }
     }
   }
 
@@ -150,6 +158,11 @@ public class LoanService {
     return new User(topUser, topUser, ""); // Costruisco un User fittizio solo con username
   }
 
+  /**
+   * Metodo che rimuove i prestiti scacuti
+   *
+   * @return il numero di presisti rimossi
+   */
   public int cleanOldLoans() {
     List<Loan> toRemove = new ArrayList<>();
     for (Loan loan : activeLoans) {
