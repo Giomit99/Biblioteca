@@ -5,9 +5,15 @@ import com.biblioteca.exception.DatabaseException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Raccolta di libri
+ */
 public class BookRepository {
   private List<Book> books;
 
+  /**
+   * Costruttore che istanzia con ArrayList
+   */
   public BookRepository() {
     this.books = new ArrayList<>();
   }
@@ -25,10 +31,19 @@ public class BookRepository {
     books.add(book);
   }
 
+  /**
+   * Ritorna la lista di tutti i libri presenti
+   * @return lista
+   */
   public List<Book> findAll() {
     return books;
   }
 
+  /**
+   * Cerca se sono presenti libri con che contengono determinate parole
+   * @param query parole del titolo del libro cercato
+   * @return lista dei libri trovati
+   */
   public List<Book> searchByTitle(String query) {
     List<Book> results = new ArrayList<>();
     for (Book book : books) {
