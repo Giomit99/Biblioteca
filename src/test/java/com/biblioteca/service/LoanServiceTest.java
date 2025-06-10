@@ -9,7 +9,7 @@ import com.biblioteca.model.User;
 import org.junit.jupiter.api.Test;
 
 /**
- * Classe di test che testa la business logic di LoanService
+ * Classe di test che testa la business logic di LoanService.
  */
 public class LoanServiceTest {
 
