@@ -6,20 +6,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Insieme degli utenti
+ * Insieme degli utenti.
  */
 public class UserRepository {
   private List<User> users;
 
   /**
-   * Costruttore che istanzia una ArrayList
+   * Costruttore che istanzia una ArrayList.
    */
   public UserRepository() {
     this.users = new ArrayList<>();
   }
 
   /**
-   * Salva utente
+   * Salva utente.
    *
    * @param user utente da salvare
    */
@@ -31,7 +31,8 @@ public class UserRepository {
   }
 
   /**
-   * Ritorna tutti gli utenti
+   * Ritorna tutti gli utenti.
+   *
    * @return lista degli utenti
    */
   public List<User> findAll() {

@@ -1,7 +1,7 @@
 package com.biblioteca.model;
 
 /**
- * Classe pojo che rappresenta gli utenti
+ * Classe pojo che rappresenta gli utenti.
  */
 public class User {
   private String name;
@@ -9,11 +9,11 @@ public class User {
   private String password;
 
   /**
-   * Costruttore dell'utente
+   * Costruttore dell'utente.
    *
-   * @param name
-   * @param username
-   * @param password
+   * @param name nome utente
+   * @param username username utente
+   * @param password password utente
    */
   public User(String name, String username, String password) {
     this.name = name;
@@ -22,7 +22,8 @@ public class User {
   }
 
   /**
-   * Metodo nome utente
+   * Metodo nome utente.
+   *
    * @return ritorna il nome dell'utente
    */
   public String getName() {
@@ -30,7 +31,8 @@ public class User {
   }
 
   /**
-   * Metodo username
+   * Metodo username.
+   *
    * @return ritorna lo username dell'utente
    */
   public String getUsername() {
@@ -38,8 +40,10 @@ public class User {
   }
 
   /**
-   * Verifica la password
+   * Verifica la password.
+   *
    * @param password password da validare
+   *
    * @return boleano che è true se la password è uguale
    */
   public boolean checkPassword(String password) {

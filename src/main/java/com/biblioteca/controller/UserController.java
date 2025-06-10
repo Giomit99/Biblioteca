@@ -5,18 +5,24 @@ import com.biblioteca.repository.UserRepository;
 import com.biblioteca.service.UserService;
 import java.util.List;
 
+/**
+ * Controller utenti.
+ */
 public class UserController {
   private UserService service;
   private static UserRepository userRepository = new UserRepository();
   private User authenticatedUser = null;
 
   /**
-   * Costruttore p
+   * Costruttore.
    */
   public UserController() {
     service = new UserService(userRepository);
   }
 
+  /**
+   * Mostra tutti gli utenti.
+   */
   public void showAllUsers() {
     List<User> users = service.getAllUsers();
     System.out.println("Lista utenti registrati:");
@@ -25,11 +31,26 @@ public class UserController {
     }
   }
 
+  /**
+   * Regista un nuovo utente.
+   *
+   * @param name nome
+   * @param username username
+   * @param password password
+   */
   public void registerNewUser(String name, String username, String password) {
     User user = new User(name, username, password);
     service.registerUser(user);
   }
 
+  /**
+   * Login di un utente.
+   *
+   * @param username username
+   * @param password password
+   *
+   * @return accesso contentito
+   */
   public boolean login(String username, String password) {
     User user = service.login(username, password);
     if (user != null) {
@@ -42,6 +63,11 @@ public class UserController {
     }
   }
 
+  /**
+   * Ritorna utente autentificato.
+   *
+   * @return utente
+   */
   public User getAuthenticatedUser() {
     return authenticatedUser;
   }

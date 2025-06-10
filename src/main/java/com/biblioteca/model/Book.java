@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 /**
- * Pojo che rappresenta un libro
+ * Pojo che rappresenta un libro.
  */
 public class Book {
   private String title;
@@ -12,7 +12,8 @@ public class Book {
   private Queue<User> reservationQueue;
 
   /**
-   * Costruttore del libro
+   * Costruttore del libro.
+   *
    * @param title titolo del libro
    */
   public Book(String title) {
@@ -22,7 +23,8 @@ public class Book {
   }
 
   /**
-   * Ritorna il titolo del libro
+   * Ritorna il titolo del libro.
+   *
    * @return titolo
    */
   public String getTitle() {
@@ -30,7 +32,8 @@ public class Book {
   }
 
   /**
-   * Ritorna un boleano che se è true indica che il libro è già in prestito
+   * Ritorna un boleano che se è true indica che il libro è già in prestito.
+   *
    * @return boleano
    */
   public boolean isLoaned() {
@@ -38,7 +41,8 @@ public class Book {
   }
 
   /**
-   * Motodo che permette di settare il prestito a un utente
+   * Motodo che permette di settare il prestito a un utente.
+   *
    * @param loaned boleano
    */
   public void setLoaned(boolean loaned) {
@@ -46,7 +50,8 @@ public class Book {
   }
 
   /**
-   * Aggiunge a una coda l'utente che vuole prendere in prestito il libro
+   * Aggiunge a una coda l'utente che vuole prendere in prestito il libro.
+   *
    * @param user utente
    */
   public void addReservation(User user) {
@@ -54,7 +59,8 @@ public class Book {
   }
 
   /**
-   * Metodo che ritorna il primo che ha prenotato il libro
+   * Metodo che ritorna il primo che ha prenotato il libro.
+   *
    * @return utente
    */
   public User getNextReservation() {
@@ -62,8 +68,9 @@ public class Book {
   }
 
   /**
-   * Ritorna un boleano che se è true indica che c'è almeno un utente che lo vuole in prestito
-   * @return
+   * Ritorna un boleano che se è true indica che c'è almeno un utente che lo vuole in prestito.
+   *
+   * @return boleano che torna true se ci sono utenti in coda per un determinato libro
    */
   public boolean hasReservations() {
     return !reservationQueue.isEmpty();

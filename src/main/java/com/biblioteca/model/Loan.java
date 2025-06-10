@@ -3,7 +3,7 @@ package com.biblioteca.model;
 import java.time.LocalDate;
 
 /**
- * Classe che rappresenta i prestiti dei libri agli utenti
+ * Classe che rappresenta i prestiti dei libri agli utenti.
  */
 public class Loan {
   private Book book;
@@ -12,8 +12,10 @@ public class Loan {
   private LocalDate dueDate;
 
   /**
-   * Costruttore con default dei numero di giorni di prestito
+   * Costruttore con default dei numero di giorni di prestito.
+   *
    * @param book libro da prestare
+   *
    * @param user utente che richiede il prestito
    */
   public Loan(Book book, User user) {
@@ -24,10 +26,11 @@ public class Loan {
   }
 
   /**
-   * Costruttore che permette di maneggiare i giorni di prestito
-   * @param book
-   * @param user
-   * @param customDueDate
+   * Costruttore che permette di maneggiare i giorni di prestito.
+   *
+   * @param book libro
+   * @param user utente
+   * @param customDueDate data scadenza prestito
    */
   public Loan(Book book, User user, LocalDate customDueDate) {
     this.book = book;
@@ -37,7 +40,8 @@ public class Loan {
   }
 
   /**
-   * Ritorna il libro
+   * Ritorna il libro.
+   *
    * @return libro
    */
   public Book getBook() {
@@ -45,7 +49,8 @@ public class Loan {
   }
 
   /**
-   * Ritorna l'utente
+   * Ritorna l'utente.
+   *
    * @return user
    */
   public User getUser() {
@@ -53,7 +58,8 @@ public class Loan {
   }
 
   /**
-   * Data prestito
+   * Data prestito.
+   *
    * @return data
    */
   public LocalDate getStartDate() {
@@ -61,7 +67,8 @@ public class Loan {
   }
 
   /**
-   * Data fine prestito
+   * Data fine prestito.
+   *
    * @return data
    */
   public LocalDate getDueDate() {
@@ -69,7 +76,8 @@ public class Loan {
   }
 
   /**
-   * Verifica se il prestito è scaduto
+   * Verifica se il prestito è scaduto.
+   *
    * @return boleano che è true se il prestito è scaduto
    */
   public boolean isOverdue() {
@@ -77,7 +85,8 @@ public class Loan {
   }
 
   /**
-   * Ritorna il numero di giorno di un libro ancora in prestito
+   * Ritorna il numero di giorno di un libro ancora in prestito.
+   *
    * @return numero di giorni rimanenti
    */
   public long daysUntilDue() {

@@ -26,14 +26,29 @@ public class LoanController implements LoanListener {
     this.formatter = new Formatter();
   }
 
+  /**
+   * Richiede prestito.
+   *
+   * @param loan prestito
+   */
   public void requestLoan(Loan loan) {
     service.processLoan(loan);
   }
 
+  /**
+   * Ritorna la business logic.
+   *
+   * @return LoanService
+   */
   public LoanService getLoanService() {
     return service;
   }
 
+  /**
+   * Stampa se il prestito è stato confermato.
+   *
+   * @param loan prestito
+   */
   @Override
   public void loanProcessed(Loan loan) {
     System.out.println(formatter.format("Prestito confermato: "
@@ -44,8 +59,9 @@ public class LoanController implements LoanListener {
   }
 
   /**
-   * Metodo che mostra i prestiti scaduti
-   * @param loans
+   * Metodo che mostra i prestiti scaduti.
+   *
+   * @param loans prestito
    */
   public void showOverdueLoans(List<Loan> loans) {
     System.out.println(formatter.format("Prestiti scaduti:"));
@@ -56,6 +72,9 @@ public class LoanController implements LoanListener {
     }
   }
 
+  /**
+   * Mosta i libri disponibili.
+   */
   public void showAvailableBooks() {
     List<Book> books = bookRepository.findAll();
     System.out.println(formatter.format("Lista dei libri disponibili:"));
@@ -64,24 +83,48 @@ public class LoanController implements LoanListener {
     }
   }
 
+  /**
+   * Aggiunge libro al repository.
+   *
+   * @param book libro
+   */
   public void addBook(Book book) {
     bookRepository.save(book);
   }
 
+  /**
+   * Ritorna libro.
+   *
+   * @param user utente
+   *
+   * @param book libro
+   */
   public void returnBook(User user, Book book) {
     service.returnBook(user, book);
   }
 
+  /**
+   * Ritorna i prestiti prossibili alla scadenza.
+   *
+   * @param loans lista dei presisti in vigore
+   */
   public void showLoansNearExpiry(List<Loan> loans) {
     System.out.println(formatter.format("Prestiti prossimi alla scadenza:"));
     for (Loan loan : loans) {
       long daysLeft = loan.daysUntilDue();
+      String title = loan.getBook().getTitle();
+      String name = loan.getUser().getName();
       if (daysLeft >= 0 && daysLeft <= 3) {
-        System.out.println("- " + loan.getBook().getTitle() + " preso da " + loan.getUser().getName() + " (scade tra " + daysLeft + " giorni)");
+        System.out.println(title + " preso da " + name + " (scade tra " + daysLeft + ")");
       }
     }
   }
 
+  /**
+   * Cerca libro.
+   *
+   * @param query libro da cercare
+   */
   public void searchBooks(String query) {
     List<Book> results = bookRepository.searchByTitle(query);
     System.out.println(formatter.format("Risultati ricerca per: '" + query + "'"));

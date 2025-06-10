@@ -6,20 +6,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Raccolta di libri
+ * Raccolta di libri.
  */
 public class BookRepository {
   private List<Book> books;
 
   /**
-   * Costruttore che istanzia con ArrayList
+   * Costruttore che istanzia con ArrayList.
    */
   public BookRepository() {
     this.books = new ArrayList<>();
   }
 
   /**
-   * Medoto che salva un libro nel repository
+   * Medoto che salva un libro nel repository.
    *
    * @param book libro da salvare
    */
@@ -32,7 +32,8 @@ public class BookRepository {
   }
 
   /**
-   * Ritorna la lista di tutti i libri presenti
+   * Ritorna la lista di tutti i libri presenti.
+   *
    * @return lista
    */
   public List<Book> findAll() {
@@ -40,8 +41,10 @@ public class BookRepository {
   }
 
   /**
-   * Cerca se sono presenti libri con che contengono determinate parole
+   * Cerca se sono presenti libri con che contengono determinate parole.
+   *
    * @param query parole del titolo del libro cercato
+   *
    * @return lista dei libri trovati
    */
   public List<Book> searchByTitle(String query) {
