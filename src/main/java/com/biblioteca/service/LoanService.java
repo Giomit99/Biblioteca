@@ -74,8 +74,8 @@ public class LoanService {
   public void returnBook(User user, Book book) {
     Loan loanToRemove = null;
     for (Loan loan : activeLoans) {
-      if (loan.getUser().getName().equals(user.getName()) &&
-              loan.getBook().getTitle().equals(book.getTitle())) {
+      if (loan.getUser().getName().equals(user.getName())
+              && loan.getBook().getTitle().equals(book.getTitle())) {
         loanToRemove = loan;
         break;
       }
