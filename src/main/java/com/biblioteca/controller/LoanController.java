@@ -18,7 +18,7 @@ public class LoanController implements LoanListener {
   private Formatter formatter;
 
   /**
-   * Costruttore
+   * Costruttore.
    */
   public LoanController() {
     this.bookRepository = new BookRepository();

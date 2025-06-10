@@ -1,5 +1,8 @@
 package com.biblioteca.model;
 
+/**
+ * Classe pojo che rappresenta gli utenti
+ */
 public class User {
   private String name;
   private String username;
