@@ -4,12 +4,11 @@ import com.biblioteca.model.Book;
 import com.biblioteca.model.Loan;
 import com.biblioteca.model.User;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
-import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import org.junit.jupiter.api.BeforeEach;
+import java.io.ByteArrayOutputStream;
 import java.time.LocalDate;
+import org.junit.jupiter.api.Test;
 import java.util.Collections;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
