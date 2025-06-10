@@ -15,7 +15,7 @@ public class BookRepository {
   /**
    * Medoto che salva un libro nel repository
    *
-   * @param book
+   * @param book libro da salvare
    */
   public void save(Book book) {
     if (book == null) {

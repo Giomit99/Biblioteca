@@ -18,8 +18,6 @@ public class Main {
    * @param args gli argomenti della riga di comando
    */
   public static void main(String[] args) {
-    Scanner scanner = new Scanner(System.in);
-
     System.out.println("=== Sistema Biblioteca Avanzata ===");
 
     // --- Gestione utenti ---
@@ -29,6 +27,7 @@ public class Main {
     userController.registerNewUser("Giacomo Verdi", "giacomo", "pass");
 
     // --- Login utente ---
+    Scanner scanner = new Scanner(System.in);
     System.out.println("Effettua il login per continuare:");
     System.out.print("Username: ");
     String username = scanner.nextLine();
@@ -41,8 +40,6 @@ public class Main {
       System.out.println("Accesso negato. Termino il programma.");
       return;
     }
-
-    User loggedUser = userController.getAuthenticatedUser();
 
     // --- Gestione libri ---
     LoanController loanController = new LoanController();
@@ -59,6 +56,7 @@ public class Main {
     System.out.println();
 
     // --- Prestiti ---
+    User loggedUser = userController.getAuthenticatedUser();
     Loan loan1 = new Loan(book1, loggedUser);
     loanController.requestLoan(loan1);
 

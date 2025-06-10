@@ -1,12 +1,12 @@
 package com.biblioteca.service;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 import com.biblioteca.controller.LoanController;
 import com.biblioteca.model.Book;
 import com.biblioteca.model.Loan;
 import com.biblioteca.model.User;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Classe di test che testa la business logic di LoanService
