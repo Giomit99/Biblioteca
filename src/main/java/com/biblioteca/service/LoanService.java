@@ -20,7 +20,7 @@ public class LoanService {
   /**
    * Costruttore
    *
-   * @param listener
+   * @param listener interfaccia
    */
   public LoanService(LoanListener listener) {
     this.listener = listener;
@@ -29,7 +29,8 @@ public class LoanService {
   }
 
   /**
-   * Gestione di un prestito
+   * Gestione di un prestito.
+   *
    * @param loan prestito
    */
   public void processLoan(Loan loan) {
@@ -56,6 +57,14 @@ public class LoanService {
     }
   }
 
+  /**
+   * Controlla se un determinato utente ha in presisto un determinato libro.
+   *
+   * @param user utente
+   * @param book libro
+   *
+   * @return ritorna true se c'è l'ha
+   */
   private boolean hasLoanedBook(User user, Book book) {
     for (Loan loan : activeLoans) {
       if (loan.getUser().getName().equals(user.getName()) && loan.getBook().getTitle().equals(book.getTitle())) {
@@ -65,19 +74,29 @@ public class LoanService {
     return false;
   }
 
+  /**
+   * Quantità prestiti attivi.
+   *
+   * @return numero prestiti
+   */
   public int getActiveLoans() {
     return activeLoans.size();
   }
 
+  /**
+   * Lista dei prestiti attivi.
+   *
+   * @return lista prestiti
+   */
   public List<Loan> getAllLoans() {
     return activeLoans;
   }
 
   /**
-   * Ritorna libro
+   * Ritorna libro.
    *
-   * @param user
-   * @param book
+   * @param user utente
+   * @param book libro
    */
   public void returnBook(User user, Book book) {
     Loan loanToRemove = null;
@@ -113,10 +132,20 @@ public class LoanService {
     }
   }
 
+  /**
+   * Numero totale dei prestiti avvenuti.
+   *
+   * @return numero
+   */
   public int getTotalLoans() {
     return historicalLoans.size();
   }
 
+  /**
+   * Libro che è stato preso in prestito più volte.
+   *
+   * @return libro
+   */
   public Book getMostLoanedBook() {
     Map<String, Integer> bookCount = new HashMap<>();
     for (Loan loan : historicalLoans) {
@@ -138,6 +167,11 @@ public class LoanService {
     return new Book(mostLoanedTitle);
   }
 
+  /**
+   * L'utente che ha fatto più prestiti.
+   *
+   * @return utente
+   */
   public User getUserWithMostLoans() {
     Map<String, Integer> userCount = new HashMap<>();
     for (Loan loan : historicalLoans) {
@@ -159,7 +193,7 @@ public class LoanService {
   }
 
   /**
-   * Metodo che rimuove i prestiti scacuti
+   * Metodo che rimuove i prestiti scacuti.
    *
    * @return il numero di presisti rimossi
    */
@@ -174,6 +208,11 @@ public class LoanService {
     return toRemove.size(); // ritorna quanti prestiti sono stati puliti
   }
 
+  /**
+   * Aggiunge prestito al l'insieme dei prestiti avvenuti.
+   *
+   * @param loan prestito
+   */
   public void addHistoricalLoan(Loan loan) {
     historicalLoans.add(loan);
   }
